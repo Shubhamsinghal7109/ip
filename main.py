@@ -2,8 +2,9 @@ import streamlit as st
 import urllib.request, urllib.parse, urllib.error
 import json
 import datetime
-import public_ip as ip
-ip=ip.get()
+import socket   
+hostname=socket.gethostname()   
+ip=socket.gethostbyname(hostname) 
 serviceurl = 'http://www.geoplugin.net/json.gp?ip='+ip
 uh = urllib.request.urlopen(serviceurl)
 data = uh.read().decode()
